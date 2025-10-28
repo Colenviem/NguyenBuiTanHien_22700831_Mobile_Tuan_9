@@ -21,20 +21,21 @@ export default function Add() {
 
         if (id) {
             await db.runAsync(
-            "UPDATE todos SET content = ? WHERE id = ?",
+                "UPDATE todos SET content = ? WHERE id = ?",
             content,
             Number(id)
             );
         } else {
             await db.runAsync(
-            "INSERT INTO todos (content, status) VALUES (?, ?)",
-            content,
-            0 
+                "INSERT INTO todos (content, status) VALUES (?, ?)",
+                content,
+                0 
             );
         }
 
         router.push("/toDoList"); 
-        };
+    };
+    
     return (
         <View style={styles.container}>
             <View style={styles.header}>
